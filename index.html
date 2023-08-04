@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Show Today in Calendar | width JS</title>
+  </head>
+  <body>
+    <div class="calendar-container">
+      <div class="top">
+        <span id="year">2020</span>
+        <span>- </span>
+        <span id="month">February</span>
+      </div>
+      <div class="bottom">
+        <span id="date">25</span>
+        <span id="day">Sunday</span>
+      </div>
+    </div>
+
+    <!-- Javascript Codes -->
+    <script>
+      // Getting span tags
+      const year = document.getElementById("year");
+      const month = document.getElementById("month");
+      const date = document.getElementById("date");
+      const day = document.getElementById("day");
+
+      // Setting Monhts and Week's days as an array
+      let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      // Getting current date
+      const today = new Date();
+
+      year.innerHTML = today.getFullYear();
+
+      // without months[] this'll be only as which number is the month of year
+      month.innerHTML = months[today.getMonth()];
+
+      day.innerHTML = days[today.getDay()]; // without days[] this'll be only as which number is the day of week
+
+      if (today.getDate() < 10) {
+        date.innerHTML = "0" + today.getDate();
+      } else {
+        date.innerHTML = "" + today.getDate();
+      }
+    </script>
+  </body>
+</html>
